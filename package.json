@@ -1,11 +1,25 @@
 {
+    "name": "learnova",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
     "scripts": {
-        "dev:client": "next dev -p 3000 --turbo",
-        "dev:server": "nest start --watch",
-        "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "start": "turbo run start",
+        "lint": "turbo run lint",
+        "test": "turbo run test",
+        "clean": "turbo run clean && rm -rf node_modules",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\""
     },
     "devDependencies": {
-        "concurrently": "^9.1.2",
-        "prisma": "^6.6.0"
+        "prettier": "^3.0.0",
+        "turbo": "^1.10.0"
+    },
+    "dependencies": {
+        "learnova": "file:"
     }
 }
